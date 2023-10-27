@@ -58,20 +58,13 @@ app.get('/:col/:key', async (req, res) => {
 })
 
 // Get a full listing
-/*app.get('/:col', async (req, res) => {
-  const col = req.params.col
-  console.log(`list collection: ${col} with params: ${JSON.stringify(req.params)}`)
-  const items = await db.collection(col).list()
-  console.log(JSON.stringify(items, null, 2))
-  res.json(items).end()
-})*/
-
 app.get('/:col', async (req, res) => {
   const col = req.params.col
   console.log(`list collection: ${col} with params: ${JSON.stringify(req.params)}`)
   const items = await db.collection(col).list()
   console.log(JSON.stringify(items, null, 2))
-  res.send(items)
+  res.send(items["responseJSON"])
+  //res.json(items).end()
 })
 
 // Catch all handler for all other request.
