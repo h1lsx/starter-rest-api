@@ -54,7 +54,7 @@ app.get('/:col/:key', async (req, res) => {
   console.log(`from collection: ${col} get key: ${key} with params ${JSON.stringify(req.params)}`)
   const item = await db.collection(col).get(key)
   console.log(JSON.stringify(item, null, 2))
-  res.json(JSON.stringify(item, null, 2)).end()
+  res.json(JSON.stringify(item["props"], null, 2)).end()
 })
 
 // Get a full listing
